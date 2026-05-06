@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kay - Personal Portfolio</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f1115;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    align-items: center;
+}
+
+.logo {
+    color: orange;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar ul a{
+    position: relative;
+    gap: 30px;
+    list-style: none;
+    color: #aaa;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* HOVER UNDERLINE */
+.navbar ul a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: orange;
+    transition: 0.3s;
+}
+
+.navbar ul a:hover {
+    color: #fff;
+}
+
+.navbar ul a:hover::after {
+    width: 100%;
+}
+
+
+
+.navbar ul li {
+    position: relative;
+    cursor: pointer;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+/* HOVER UNDERLINE */
+.navbar ul li::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: orange;
+    transition: 0.3s;
+}
+
+.navbar ul li:hover {
+    color: #fff;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+/* MAIN */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT IMAGE */
+.left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 100vh;
+    background-image: url('asset/img/kay.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.left::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.1), #0f1115);
+}
+
+/* RIGHT */
+.right {
+    width: 65%;
+    padding: 60px;
+    margin-left: 35%;
+}
+
+/* TEXT */
+.subtitle {
+    color: orange;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.desc {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+
+
+/* CARD */
+.info-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.4s;
+}
+
+/* HOVER CARD */
+.card:hover {
+    transform: translateY(-5px);
+    border-color: orange;
+    box-shadow: 0 10px 30px rgba(255,165,0,0.2);
+}
+
+.card p {
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.card a {
+    margin: 10px 0;
+    color: #ccc;
+    text-decoration: none;;
+}
+
+.card i {
+    color: orange;
+    margin-right: 10px;
+}
+
+/* FOOTER */
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 35%;
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    background: #111;
+    padding: 20px 40px;
+    align-items: center;
+}
+
+.footer-bar div {
+    color: #aaa;
+}
+
+.footer-bar i {
+    color: orange;
+    margin-right: 8px;
+}
+
+.footer-bar a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+/* BUTTON */
+.btn {
+    background: linear-gradient(45deg, orange, #ff7b00);
+    padding: 15px 40px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255,165,0,0.5);
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+      .container {
+        flex-direction: column;
+    }
+
+    /* BANNER IMAGE */
+    .left {
+        width: 100%;
+        height: 300px; /* tinggi banner */
+        background-position: center top;
+        position: relative;
+    }
+
+    /* overlay gradient jadi ke bawah */
+    .left::after {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.2), #0f1115);
+    }
+
+    .right {
+        width: 100%;
+        padding: 30px 20px;
+        position: relative;
+        margin-left: 0;
+    }
+
+    .footer-bar {
+        position: static;
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;;
+    }
+
+    .info-box {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar" data-aos="fade-down">
+    <div class="logo">Kay Personal Portfolio</div>
+    <ul>
+        <a href="index.html">HOME</a>
+        <a href="port.html">PORTFOLIO</a>
+        <a href="contact.html">CONTACT</a>
+    </ul>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+    
+    <div class="left"></div>
+
+    <div class="right">
+        <p class="subtitle" data-aos="fade-up">WEB DESIGNER & Development</p>
+        <h1 class="title" data-aos="fade-up" data-aos-delay="100">Kayy</h1>
+
+        <p class="desc" data-aos="fade-up" data-aos-delay="200">
+            I'm a Freelance Web Designer & Web Developer based in DKI Jakarta.
+            I build modern, fast, and professional websites.
+        </p>
+
+        <div class="info-box">
+            <div class="card" data-aos="fade-right">
+                <p><i class="fa-solid fa-flag"></i>Nationality: Indonesian</p>
+                <p><i class="fa-solid fa-location-dot"></i>DKI Jakarta</p>
+                <p><i class="fa-solid fa-phone"></i>+62 851 7305 3120</p>
+            </div>
+
+            <div class="card" data-aos="fade-left">
+                <p><i class="fa-solid fa-language"></i>Indonesian, English</p>
+                <a href="mailto:kayfile11@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i>kayfile11@gmail.com</a>
+                <a href="https://wa.me/6285173053120?text=Halo%20saya%20ingin%20konsultasi%20Tentang%20website%20😊" target="_blank"><i class="fa-brands fa-whatsapp"></i>+62 851 7305 3120</a>
+            </div>
+        </div>
+
+        <!-- SERVICES -->
+        <section class="services mt-4">
+            <div class="services-header" data-aos="fade-up">
+                <p class="subtitle">WHAT I DO</p>
+                <h2 class="title">SERVICES</h2>
+            </div>
+
+        <div class="info-box mb-4">
+                    <div class="card" data-aos="fade-right">
+                   <h3 class="subtitle">Web Design</h3>
+                        <p>We offer professional web design services at affordable prices to help your business attract more visitors and keep them on your site! Not only beautiful designs, we also build websites with complete strategies designed to convert your site visitors into your best customers.</p>
+                    </div>
+
+                    <div class="card" data-aos="fade-left">
+                     <h3 class="subtitle">Developpment</h3>
+                        <p>We work together and always communicate actively with customers to create a custom website that is high-performance and secure with a focus on unique professional web design, functionality and ease of web operation. Whatever your project requires, We have the tools and experience to ensure that your goals are not only met, but exceeded.</p>
+                    </div>
+                </div>
+        </section>
+
+    </div>
+</div>
+
+
+
+<!-- FOOTER -->
+<div class="footer-bar" data-aos="fade-up">
+    <div><i class="fa-solid fa-location-dot"></i>DKI Jakarta</div>
+    <a href="mailto:kayfile11@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i>Email</a>
+    <a href="https://wa.me/6285173053120?text=Halo%20saya%20ingin%20konsultasi%20Tentang%20website%20😊" target="_blank"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a>
+    <a href="contact.html" class="btn">Hire Me</a>
+</div>
+
+<!-- AOS SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+    duration: 1000,
+    once: true
+});
+</script>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>
